@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "cdc7a4c8-ea15-42ef-8aa4-e4accaff5595",
+		"name": "SpringSecurityOauth2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Users without authenticate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8181/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User with basic client authentication",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "secret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "my-trusted-client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8181/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request for access token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "secret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "my-trusted-client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8181/oauth/token?grant_type=password&username=anil&password=kumar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password"
+						},
+						{
+							"key": "username",
+							"value": "anil"
+						},
+						{
+							"key": "password",
+							"value": "kumar"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User with valid access token with role USER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8181/user?access_token=ddb43bf6-920d-426d-bd52-7ac8ca9836b0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "ddb43bf6-920d-426d-bd52-7ac8ca9836b0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users with valid access token with role ADMIN",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8181/user/?access_token=cb32db81-a32e-45c0-b8d7-7e18539df624",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"user",
+						""
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "cb32db81-a32e-45c0-b8d7-7e18539df624"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request access token with invalid password",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "secret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "my-trusted-client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8181/oauth/token?grant_type=password&username=anil&password=verma",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password"
+						},
+						{
+							"key": "username",
+							"value": "anil"
+						},
+						{
+							"key": "password",
+							"value": "verma"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users with expired token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8181/user/?access_token=c4542006-35fc-4a7a-a3db-e8146fbdd419",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"user",
+						""
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "c4542006-35fc-4a7a-a3db-e8146fbdd419"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
