@@ -262,6 +262,140 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get single user with valid access token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8181/user/anil?access_token=74df7c9f-5c22-44ca-9e20-38235ae008cf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"user",
+						"anil"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "74df7c9f-5c22-44ca-9e20-38235ae008cf"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"jay\",\n    \"emailid\": \"jay@gmail.com\",\n    \"contact\": \"+91886655462\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8181/user/?access_token=6e9bce7d-dde1-4321-a51e-0ca47aad8a54",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"user",
+						""
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "6e9bce7d-dde1-4321-a51e-0ca47aad8a54"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update existing user with valid access token",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"ainesh\",\n\t\"emailid\":\"ainesh@outlook.com\",\n\t\"contact\":\"+918000345643\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8181/user/?access_token=ae331978-5186-4c65-abb2-72d13fcba5c0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"user",
+						""
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "ae331978-5186-4c65-abb2-72d13fcba5c0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete existing user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8181/user/ainesh?access_token=af1468ed-8ea3-4a59-827b-eaa905756a3f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"user",
+						"ainesh"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "af1468ed-8ea3-4a59-827b-eaa905756a3f"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

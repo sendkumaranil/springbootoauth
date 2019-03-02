@@ -33,16 +33,62 @@ public class UserService {
 		return userDetail;
 	}
 	
-	public static void main(String[] args) {
-		String username="anilk";
+	public boolean isUserExists(User user) {
+	
 		List<User> users=UserTable.users();
+		User existUser=users
+				.stream()
+				.filter(u -> u.getUsername().equalsIgnoreCase(user.getUsername()))
+				.findAny()
+				.orElse(null);
 		
-		System.out.println(
-				
-				users.stream().filter(user -> user.getUsername().equalsIgnoreCase(username)).findAny().orElse(null)
-				
-				);//users.stream().filter(user -> user.getUsername().equalsIgnoreCase(username));
+		if(existUser==null) {
+			return false;
+		}
 		
+		return true;
+	}
+	
+	public boolean isUserExists(String username) {
+		
+		List<User> users=UserTable.users();
+		User existUser=users
+				.stream()
+				.filter(u -> u.getUsername().equalsIgnoreCase(username))
+				.findAny()
+				.orElse(null);
+		
+		if(existUser==null) {
+			return false;
+		}
+		
+		return true;
+	}
+	
+	public void saveUser(User user) {
+		UserTable.users().add(user);
+	}
+
+	public void updateUser(User user) {
+		List<User> users=UserTable.users();
+		int i=0;
+		for(User u:users) {
+			if(u.getUsername().equalsIgnoreCase(user.getUsername())) {
+				users.set(i, user);
+			}
+			i++;
+		}
+	}
+
+	public void deleteUser(String username) {
+		List<User> users=UserTable.users();
+		int i=0;
+		for(User u:users) {
+			if(u.getUsername().equalsIgnoreCase(username)) {
+				users.remove(i);
+			}
+			i++;
+		}
 	}
 
 }
