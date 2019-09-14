@@ -1,6 +1,7 @@
 node {
    stage("Git Checkout") { // for display purposes
       // Get some code from a GitHub repository
+      echo "Job '${JOB_NAME}' Branch: '${BRANCH_NAME}' and Build No: (${BUILD_NUMBER})"
       git 'https://github.com/sendkumaranil/springbootoauth.git'
    }
    stage("Source Code Build") {
