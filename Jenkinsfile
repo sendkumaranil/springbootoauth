@@ -34,7 +34,7 @@ node {
          echo "iassn0012001238"
          echo "iassn0012001239"
          echo "iassn0012001240"
-         sh "java -jar target/springbootoauth.jar &"
+         sh "java -jar target/springbootoauth.jar" &
       }
    }
    stage("Post Deployment"){
