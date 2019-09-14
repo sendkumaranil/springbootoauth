@@ -17,6 +17,7 @@ node {
        sh "mv target/*.jar target/springbootoauth.jar"
    }
    stage("Deploy") {
+      echo branchName
       if(branchName == "develop"){
          echo "Deployment Started on Dev Environment on following hosts:"
       }
