@@ -17,9 +17,21 @@ node {
        sh "mv target/*.jar target/springbootoauth.jar"
    }
    stage("Deploy") {
-      echo branchName
       if(branchName == "develop"){
          echo "Deployment Started on Dev Environment on following hosts:"
+         echo "iassn0012001234"
+      }
+      if(branchName == "release"){
+         echo "Deployment Started on UAT Environment on following hosts:"
+         echo "iassn0012001235"
+         echo "iassn0012001236"
+      }
+      if(branchName == "master"){
+         echo "Deployment Started on Production Environment on following hosts:"
+         echo "iassn0012001237"
+         echo "iassn0012001238"
+         echo "iassn0012001239"
+         echo "iassn0012001240"
       }
       sh "java -jar target/springbootoauth.jar"
    }
