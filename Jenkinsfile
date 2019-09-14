@@ -1,4 +1,5 @@
 node {
+   def branchName=${BRANCH_NAME}
    stage("Git Checkout") { // for display purposes
       // Get some code from a GitHub repository
       echo "Job '${JOB_NAME}' Branch: '${BRANCH_NAME}' and Build No: (${BUILD_NUMBER})"
@@ -16,6 +17,9 @@ node {
        sh "mv target/*.jar target/springbootoauth.jar"
    }
    stage("Deploy") {
+      if(branchName == "develop"){
+         echo "Deployment Started on Dev Environment on following hosts:"
+      }
       sh "java -jar target/springbootoauth.jar"
    }
 }
