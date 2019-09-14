@@ -37,4 +37,7 @@ node {
          sh "java -jar target/springbootoauth.jar"
       }
    }
+   stage("Post Deployment"){
+       echo "Post deployment work started"
+   }
 }
