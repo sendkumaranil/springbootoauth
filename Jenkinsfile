@@ -17,7 +17,7 @@ node {
        sh "mv target/*.jar target/springbootoauth.jar"
    }
    stage("Deploy") {
-      if(branchName == "develop"){
+      if(branchName.matches("develop")){
          echo "Deployment Started on Dev Environment on following hosts:"
          echo "iassn0012001234"
          sh "java -jar target/springbootoauth.jar"
@@ -28,7 +28,7 @@ node {
          echo "iassn0012001236"
          sh "java -jar target/springbootoauth.jar"
       }
-      if(branchName == "master"){
+      if(branchName.matches("master")){
          echo "Deployment Started on Production Environment on following hosts:"
          echo "iassn0012001237"
          echo "iassn0012001238"
