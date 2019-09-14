@@ -1,3 +1,4 @@
+//Multi branch pipeline job script
 node {
    def branchName="${BRANCH_NAME}"
    stage("Git Checkout") { // for display purposes
