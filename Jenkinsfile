@@ -22,7 +22,7 @@ node {
          echo "iassn0012001234"
          sh "java -jar target/springbootoauth.jar"
       }
-      if(branchName == "release"){
+      if(branchName.matches("release(.*)")){
          echo "Deployment Started on UAT Environment on following hosts:"
          echo "iassn0012001235"
          echo "iassn0012001236"
